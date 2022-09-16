@@ -1,0 +1,91 @@
+package packageProjetGraphique;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.JTextField;
+import javax.swing.JLabel;
+import javax.swing.JMenuBar;
+import java.awt.Dimension;
+import javax.swing.JMenu;
+import javax.swing.JMenuItem;
+
+import javax.swing.JOptionPane;
+
+public class MaPremiereFenetre {
+
+	private JFrame frame;
+	private JTextField textField;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					MaPremiereFenetre window = new MaPremiereFenetre();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public MaPremiereFenetre() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(100, 100, 450, 300);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		
+
+		btnOK.setBounds(259, 54, 85, 21);
+		frame.getContentPane().add(btnOK);
+		
+		textField = new JTextField("prenom");
+		textField.setBounds(153, 55, 96, 19);
+		frame.getContentPane().add(textField);
+		textField.setColumns(10);
+		
+		JLabel lblprenom = new JLabel("Entrez votre Prénom");
+		lblprenom.setBounds(40, 58, 103, 13);
+		frame.getContentPane().add(lblprenom);
+		
+		JMenuBar MaBarre = new JMenuBar();
+		MaBarre.setPreferredSize(new Dimension(0, 25));
+		MaBarre.setBounds(0, 0, 434, 22);
+		frame.getContentPane().add(MaBarre);
+		
+		JMenu jMenu_Fichier = new JMenu("Fichier");
+		MaBarre.add(jMenu_Fichier);
+		
+		JMenuItem jMenuItem_Ouvrir = new JMenuItem("Ouvrir");
+		jMenu_Fichier.add(jMenuItem_Ouvrir);
+		
+		JMenuItem jMenuItem_Quitter = new JMenuItem("Quitter");
+		jMenu_Fichier.add(jMenuItem_Quitter);
+		
+		JMenu jMenu_Edition = new JMenu("Edition");
+		MaBarre.add(jMenu_Edition);
+		
+		JMenu jMenu_Clients = new JMenu("Clients");
+		MaBarre.add(jMenu_Clients);
+		
+		JMenuItem jMenuItem_Liste = new JMenuItem("Liste");
+		jMenu_Clients.add(jMenuItem_Liste);
+	}
+}

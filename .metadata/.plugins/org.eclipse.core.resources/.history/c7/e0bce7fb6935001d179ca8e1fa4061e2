@@ -1,0 +1,69 @@
+package packageFenboutonRadio;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JComboBox;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
+public class FenboutonRadio {
+
+	private JFrame frame;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					FenboutonRadio window = new FenboutonRadio();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public FenboutonRadio() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(100, 100, 450, 300);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		final String[]Lesimages = {"Pomme","Poire","Abricot"};
+		
+		JLabel image = new JLabel("");
+		image.setBounds(39, 25, 83, 43);
+		frame.getContentPane().add(image);
+		
+		JComboBox listederoulante = new JComboBox();
+		listederoulante.setBounds(72, 146, 29, 21);
+		frame.getContentPane().add(listederoulante);
+		
+		JLabel choix = new JLabel("");
+		choix.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				String laSelection = (String) listederoulante.getSelectedItem();
+				choix.setText(laSelection);
+			}
+		});
+		choix.setBounds(271, 27, 95, 62);
+		frame.getContentPane().add(choix);
+		
+
+	}
+}

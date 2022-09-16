@@ -1,0 +1,81 @@
+package packageFenboutonRadio;
+import javax.swing.ButtonGroup;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JRadioButton;
+import java.awt.Color;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class FenboutonRadio {
+
+	private JFrame frame;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					FenboutonRadio window = new FenboutonRadio();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public FenboutonRadio() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(100, 100, 450, 300);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		
+		JRadioButton BTN01 = new JRadioButton("SISSR");
+		BTN01.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				BTN01.setBackground(Color.red);
+			}
+		});
+		BTN01.setBounds(28, 16, 103, 21);
+		frame.getContentPane().add(BTN01);
+		
+		JRadioButton BTN02 = new JRadioButton("SLAM");
+		BTN02.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				BTN02.setBackground(Color.blue);
+			}
+		});
+		BTN02.setBounds(28, 62, 103, 21);
+		frame.getContentPane().add(BTN02);
+		
+		JRadioButton BTN03 = new JRadioButton("Premiere Année");
+		BTN03.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				BTN03.setBackground(Color.green);
+			}
+		});
+		BTN03.setBounds(28, 118, 103, 21);
+		frame.getContentPane().add(BTN03);
+		
+		
+		final ButtonGroup groupeboutons = new ButtonGroup();
+		groupeboutons.add(BTN01);
+		groupeboutons.add(BTN02);
+		groupeboutons.add(BTN03);
+	}
+}

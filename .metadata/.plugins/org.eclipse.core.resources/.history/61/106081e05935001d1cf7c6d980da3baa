@@ -1,0 +1,63 @@
+package packageFenboutonRadio;
+import java.awt.Color;
+import javax.swing.ButtonGroup;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JRadioButton;
+
+public class FenboutonRadio {
+
+	private JFrame frame;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					FenboutonRadio window = new FenboutonRadio();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public FenboutonRadio() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(100, 100, 450, 300);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		
+		JRadioButton BTN01 = new JRadioButton("SISR");
+		BTN01.setBounds(6, 17, 103, 21);
+		frame.getContentPane().add(BTN01);
+		
+		JRadioButton BTN02 = new JRadioButton("SLAM");
+		BTN02.setBounds(6, 50, 103, 21);
+		frame.getContentPane().add(BTN02);
+		
+		JRadioButton BTN03 = new JRadioButton("Première Année");
+		BTN03.setBounds(6, 84, 103, 21);
+		frame.getContentPane().add(BTN03);
+		
+		final ButtonGroup groupeboutons = new ButtonGroup();
+		groupeboutons.add(BTN01);
+		groupeboutons.add(BTN02);
+		groupeboutons.add(BTN03);
+	}
+
+}

@@ -1,0 +1,76 @@
+package packageFenlisteDeroulante;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JComboBox;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
+public class FenlisteDeroulante {
+
+	private JFrame frame;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					FenlisteDeroulante window = new FenlisteDeroulante();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public FenlisteDeroulante() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(100, 100, 450, 300);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		
+		JLabel image = new JLabel("");
+		image.setBounds(10, 49, 106, 43);
+		frame.getContentPane().add(image);
+		
+		listederoulante.setBounds(48, 113, 29, 21);
+		frame.getContentPane().add(listederoulante);
+		
+		JLabel choix = new JLabel("");
+		choix.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				String laSelection = (String) listederoulante.getSelectedItem();
+				choix.setText(laSelection);
+			}
+		});
+		choix.setBounds(182, 49, 107, 43);
+		frame.getContentPane().add(choix);
+		
+		JComboBox listederoulante = new JComboBox();
+		listederoulante.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				final String[]Lesimages = {"Pomme","Poire","Abricot"};
+			}
+		});
+
+	}
+
+}
